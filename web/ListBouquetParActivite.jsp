@@ -1,3 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="models.ActiviteBouquet" %>
+<% ArrayList<ActiviteBouquet> act = (ArrayList<ActiviteBouquet>) request.getAttribute("listActivite"); %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,15 +12,12 @@
 	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
-	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
+	<title>Ajout</title>
 
-	<title>Blank Page</title>
-
-	<link href="css/app.css" rel="stylesheet">
+	<link href="assets/css/app.css" rel="stylesheet">
+        <link href="" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -25,12 +26,12 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">Voyage</span>
+          <span class="align-middle">AdminKit</span>
         </a>
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
-						Ajout
+						Pages
 					</li>
 
 					<li class="sidebar-item">
@@ -40,31 +41,52 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+						<a class="sidebar-link" href="index.html">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						<a class="sidebar-link" href="AjoutActivite.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout activite</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
+						<a class="sidebar-link" href="ActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Activite bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
+						<a class="sidebar-link" href="TypeLocalisation.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
             </a>
 					</li>
-
-					<li class="sidebar-header">
+                                        
+                                        <li class="sidebar-item active">
+						<a class="sidebar-link" href="Localisation.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">localisation</span>
+            </a>
+					</li>
+                                           
+                                        <li class="sidebar-header">
 						Recherche
+					</li>
+
+					<li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">List Activite par Bouquet</span>
+            </a>
+					</li>
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheBouquetParActivite.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Recherche Bouquet Par Activite</span>
+            </a>
+					</li>
+                                        
+					<li class="sidebar-header">
+						Tools & Components
 					</li>
 
 					<li class="sidebar-item">
@@ -293,15 +315,37 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Blank Page</h1>
+					<h1 class="h3 mb-3">List Bouquet</h1>
 
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Empty card</h5>
-								</div>
-								<div class="card-body">
+                                        <div class="m-sm-4">
+                                            <table class="table table-hover my-0">
+										<thead>
+											<tr>
+                                                                                            <th class="d-none d-xl-table-cell">Nom Bouquet</th>
+                                                                                            <th class="d-none d-xl-table-cell">Nom Activite</th>
+                                                                                            <th class="d-none d-xl-table-cell">Nombre</th>
+											</tr>
+										</thead>
+										<tbody>
+                                                                                    <% for(int i=0; i<act.size();i++){
+                                                                                    %>
+                                                                                        <tr>
+                                                                                            <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomActivite()); %></td>
+                                                                                            <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomBouquet()); %></td>
+                                                                                            <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getDureeActivite()); %></td>
+											</tr>
+                                                                                    <% 
+                                                                                    }
+                                                                                    %>
+										
+											
+										</tbody>
+									</table>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 						</div>
@@ -340,7 +384,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.js"></script>
+	<script src="assets/js/app.js"></script>
 
 </body>
 

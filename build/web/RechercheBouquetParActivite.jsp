@@ -1,3 +1,12 @@
+<%@page import="models.Activite" %>
+<%@page import="models.Bouquet" %>
+<%@page import="java.util.ArrayList"%>
+<%  Activite all = new Activite();
+    ArrayList<Activite> act = all.selectAll();
+%>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,15 +17,12 @@
 	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
-	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
+	<title>Ajout</title>
 
-	<title>Blank Page</title>
-
-	<link href="css/app.css" rel="stylesheet">
+	<link href="assets/css/app.css" rel="stylesheet">
+        <link href="" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -40,26 +46,32 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+						<a class="sidebar-link" href="AjoutBouquet.jsp">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						<a class="sidebar-link" href="./AjoutActivite.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout activite</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
+						<a class="sidebar-link" href="./ActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Activite bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
+						<a class="sidebar-link" href="./TypeLocalisation.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-item active">
+						<a class="sidebar-link" href="./Localisation.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">localisation</span>
             </a>
 					</li>
 
@@ -68,32 +80,13 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+						<a class="sidebar-link" href="./RechercheActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">List Activite par Bouquet</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheBouquetParActivite.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Recherche Bouquet Par Activite</span>
             </a>
 					</li>
 
@@ -298,15 +291,29 @@
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Empty card</h5>
-								</div>
+								
 								<div class="card-body">
-								</div>
-							</div>
-						</div>
-					</div>
-
+                                    <div class="card-body">
+                                        <div class="m-sm-4">
+                                            <form method="post" action="./BouquetActivite">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Activites</label>
+                                                  
+                                                    <select class="form-select mb-3" name="idActivite">
+                                                        <%
+                                                            for(int i=0;i<act.size();i++){
+                                                        %>  
+                                                        <option value="<% out.print(act.get(i).getIdAcivite()); %>"><% out.print(act.get(i).getNomActivite()); %></option>
+                                                        <%
+                                                            }
+                                                        %>
+                                                     </select>
+                                                </div>
+                                                <div class="text-center mt-3">
+<!--                                                    <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>-->
+                                                     <button type="submit" class="btn btn-lg btn-primary">Valider</button> 
+                                                </div>
+                                            </form>
 				</div>
 			</main>
 
@@ -340,7 +347,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.js"></script>
+	<script src="assets/js/app.js"></script>
 
 </body>
 

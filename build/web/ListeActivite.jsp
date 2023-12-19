@@ -26,12 +26,12 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
+          <span class="align-middle">Voyage</span>
         </a>
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
-						Pages
+						Ajout
 					</li>
 
 					<li class="sidebar-item">
@@ -41,7 +41,7 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
+						<a class="sidebar-link" href="AjoutBouquet.jsp">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
             </a>
 					</li>
@@ -71,36 +71,17 @@
 					</li>
 
 					<li class="sidebar-header">
-						Tools & Components
+						Recherche
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+						<a class="sidebar-link" href="./RechercheActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">List Activite par Bouquet</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheBouquetParActivite.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Recherche Bouquet Par Activite</span>
             </a>
 					</li>
 
@@ -309,10 +290,9 @@
                                             <table class="table table-hover my-0">
 										<thead>
 											<tr>
-												<th>Name</th>
 												<th class="d-none d-xl-table-cell">Nom activite</th>
-												<th class="d-none d-xl-table-cell">Nom Bouquet</th
-												<th class="d-none d-md-table-cell">Duree</th>
+                                                                                                <th class="d-none d-xl-table-cell">Nom Bouquet</th>
+												<th class="d-none d-md-table-cell">Nombre</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -322,7 +302,7 @@
 											
                                                                                             <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomActivite()); %></td>
 												<td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomBouquet()); %></td>
-												<td><span class="badge bg-success"><% out.print((act.get(i)).getDureeActivite()); %></span></td>
+												<td><% out.print((act.get(i)).getDureeActivite()); %></td>
 											
 											</tr>
                                                          

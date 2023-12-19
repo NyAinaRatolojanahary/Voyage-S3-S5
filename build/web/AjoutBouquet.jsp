@@ -22,12 +22,12 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
+          <span class="align-middle">Voyage</span>
         </a>
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
-						Pages
+						Ajout
 					</li>
 
 					<li class="sidebar-item">
@@ -43,60 +43,41 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="./AjoutActivite.jsp">
+						<a class="sidebar-link" href="AjoutActivite.jsp">
               <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout activite</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="./ActiviteBouquet.jsp">
+						<a class="sidebar-link" href="ActiviteBouquet.jsp">
               <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Activite bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item active">
-						<a class="sidebar-link" href="./TypeLocalisation.jsp">
+						<a class="sidebar-link" href="TypeLocalisation.jsp">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
             </a>
 					</li>
                                         
                                         <li class="sidebar-item active">
-						<a class="sidebar-link" href="./Localisation.jsp">
+						<a class="sidebar-link" href="Localisation.jsp">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">localisation</span>
             </a>
 					</li>
 
 					<li class="sidebar-header">
-						Tools & Components
+						Recherche
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+						<a class="sidebar-link" href="./RechercheActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">List Activite par Bouquet</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheBouquetParActivite.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Recherche Bouquet Par Activite</span>
             </a>
 					</li>
 
@@ -296,37 +277,21 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Blank Page</h1>
+					<h1 class="h3 mb-3">Ajout Bouquet</h1>
 
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Empty card</h5>
-								</div>
-								<div class="card-body">
-                                    <div class="card-body">
                                         <div class="m-sm-4">
-                                            <form>
+                                            <form method="post" action="./AjoutBouquet">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Name</label>
-                                                    <input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
+                                                    <label class="form-label">Nom Bouquet</label>
+                                                    <input class="form-control form-control-lg" type="text" name="nombouquet" placeholder="Entrer votre choix de bouquet" />
                                                 </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Company</label>
-                                                    <input class="form-control form-control-lg" type="text" name="company" placeholder="Enter your company name" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Email</label>
-                                                    <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Password</label>
-                                                    <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
-                                                </div>
+                                   
                                                 <div class="text-center mt-3">
-                                                    <a href="index.html" class="btn btn-lg btn-primary">Valider</a>
-                                                    <!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
+<!--                                                    <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>-->
+                                                    <button type="submit" class="btn btn-lg btn-primary">Sign up</button> 
                                                 </div>
                                             </form>
                                         </div>

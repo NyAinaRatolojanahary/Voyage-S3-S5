@@ -5,23 +5,20 @@
  */
 package controlers;
 
-import models.ActiviteBouquet;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import models.ActiviteBouquet;
+import models.Bouquet;
 
 /**
  *
  * @author LA BOSS
  */
-public class ActiviterBouquet extends HttpServlet {
+public class AjoutActiviteBouquet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +37,10 @@ public class ActiviterBouquet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ActiviterBouquet</title>");            
+            out.println("<title>Servlet AjoutBouquet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ActiviterBouquet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AjoutBouquet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,17 +72,16 @@ public class ActiviterBouquet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        int idActivite = Integer.parseInt(request.getParameter("idactivite"));
         int idBouquet = Integer.parseInt(request.getParameter("idbouquet"));
-        
-        try {
-            ActiviteBouquet act = new ActiviteBouquet();
-            ArrayList<ActiviteBouquet> atb = act.getActiviteByIdBouquet(idBouquet);
-            System.out.println(atb.size());
-            request.setAttribute("listActivite", atb);
-            RequestDispatcher disp = request.getRequestDispatcher("ListeActivite.jsp");
-            disp.forward(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(ActiviterBouquet.class.getName()).log(Level.SEVERE, null, ex);
+        int duree = Integer.parseInt(request.getParameter("duree"));
+        try{
+            ActiviteBouquet ab = new ActiviteBouquet();
+            ab.insertActiviteBouquet(idBouquet, idActivite, duree);
+            response.sendRedirect("ActiviteBouquet.jsp");
+        }
+        catch(Exception e){
+            
         }
     }
 

@@ -1,3 +1,11 @@
+<%@page import="models.Activite" %>
+<%@page import="models.Bouquet" %>
+<%@page import="java.util.ArrayList"%>
+<%  Bouquet all = new Bouquet();
+    ArrayList<Bouquet> act = all.selectAll();
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,12 +30,12 @@
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
 				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
+          <span class="align-middle">Voyage</span>
         </a>
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
-						Pages
+						Ajout
 					</li>
 
 					<li class="sidebar-item">
@@ -37,7 +45,7 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
+						<a class="sidebar-link" href="AjoutBouquet.jsp">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
             </a>
 					</li>
@@ -67,36 +75,17 @@
 					</li>
 
 					<li class="sidebar-header">
-						Tools & Components
+						Recherche
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+						<a class="sidebar-link" href="./RechercheActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">List Activite par Bouquet</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheBouquetParActivite.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Recherche Bouquet Par Activite</span>
             </a>
 					</li>
 
@@ -307,8 +296,16 @@
                                         <div class="m-sm-4">
                                             <form action="./ActiviterBouquet" method="POST">
                                                 <div class="mb-3">
-                                                    <label class="form-label">Ajout iD </label>
-                                                    <input class="form-control form-control-lg" type="number" name="idBouquet" placeholder="Entrer ici l'activite que vous avez choisie" />
+                                                    <label class="form-label">Bouquet</label>
+                                                    <select class="form-select mb-3" name="idbouquet">
+                                                        <%
+                                                            for(int i=0;i<act.size();i++){
+                                                        %>  
+                                                        <option value="<% out.print(act.get(i).getIdBoutique()); %>"><% out.print(act.get(i).getNomBouquet()); %></option>
+                                                        <%
+                                                            }
+                                                        %>
+                                                    </select>
                                                 </div>
                                                 
                                                 <div class="text-center mt-3">
