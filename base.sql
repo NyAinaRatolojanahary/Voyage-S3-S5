@@ -64,12 +64,30 @@ insert into activiteBouquet(idActiviteBouquet,idActivite,idBouquet,dureeActivite
 (default,1,3,30),
 (default,1,4,40);
 
+create table typeDuree(
+    idTypeDuree serial primary key,
+    nomTypeDuree varchar(20),
+    duree int
+);
 
+insert into typeDuree values(default,'Courte',5);
+insert into typeDuree values(default,'Moyenne',7);
+insert into typeDuree values(default,'Longue',10);
 
 
 create table voyage(
     idVoyage serial Primary Key,
     localisation int,
     bouquet int,
-    dureeVoyage int
+    typeDuree int,
+    foreign key (typeDuree) references  typeDuree(idTypeDuree)
 );
+
+insert into voyage values(default,1,1,1);
+
+Select activite.nomActivite,bouquet.nomBouquet,activiteBouquet.dureeActivite,localisation.nomLocalisation,typeLocalisation.nomTypeLocalisation 
+    from voyage 
+    join activite on activite.idActivite=activiteBouquet.idActivite 
+    join bouquet on bouquet.idBouquet = activiteBouquet.idBouquet 
+    join localisation on voyage.localisation = localisation.idLocalisation 
+    join typeLocalisation on typeLocalisation.idTypeLocalisation = localisation.idTypeLocalisation where activite.idactivite = 1;

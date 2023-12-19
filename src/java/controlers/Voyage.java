@@ -18,7 +18,7 @@ import models.Bouquet;
  *
  * @author LA BOSS
  */
-public class AjoutActiviteBouquet extends HttpServlet {
+public class Voyage extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -78,7 +78,7 @@ public class AjoutActiviteBouquet extends HttpServlet {
         int duree = Integer.parseInt(request.getParameter("duree"));
         try{
             ActiviteBouquet ab = new ActiviteBouquet();
-            ab.insertActiviteBouquet(idBouquet, idActivite, duree);
+            ab.insertActiviteBouquet(idBouquet, idLocalisation, duree);
             response.sendRedirect("ActiviteBouquet.jsp");
         }
         catch(Exception e){
