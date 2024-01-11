@@ -16,15 +16,15 @@ import utils.connectBase;
  * @author LA BOSS
  */
 public class Bouquet {
-    private int idBoutique;
+    private int idBouquet;
     private String nomBouquet;
 
-    public int getIdBoutique() {
-        return idBoutique;
+    public int getIdBouquet() {
+        return idBouquet;
     }
 
-    public void setIdBoutique(int idBoutique) {
-        this.idBoutique = idBoutique;
+    public void setIdBouquet(int idBouquet) {
+        this.idBouquet = idBouquet;
     }
 
     public String getNomBouquet() {
@@ -38,8 +38,8 @@ public class Bouquet {
     public Bouquet() {
     }
 
-    public Bouquet(int idBoutique, String nomBouquet) {
-        this.idBoutique = idBoutique;
+    public Bouquet(int idBouquet, String nomBouquet) {
+        this.idBouquet = idBouquet;
         this.nomBouquet = nomBouquet;
     }
 
@@ -68,11 +68,11 @@ public class Bouquet {
         Bouquet valiny = new Bouquet();
         Connection se_connecter = connectBase.connect();
         Statement state = se_connecter.createStatement();
-        String requete = "select * from bouquet where id="+id+"";
+        String requete = "select * from bouquet where idBouquet="+id+"";
         ResultSet resultat = state.executeQuery(requete);
         while (resultat.next()) {            
             String nom = resultat.getString(2);
-            valiny.setIdBoutique(id);
+            valiny.setIdBouquet(id);
             valiny.setNomBouquet(nom);
         }
         se_connecter.close();

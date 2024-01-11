@@ -1,3 +1,14 @@
+<%-- 
+    Document   : ListeVoyageActivite
+    Created on : 11 janv. 2024, 01:30:54
+    Author     : Ny Aina Ratolo
+--%>
+
+<%@page import="java.util.ArrayList"%>
+<%@page import="models.VoyageActivite" %>
+<% ArrayList<VoyageActivite> act = (ArrayList<VoyageActivite>) request.getAttribute("listVoyage"); %>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,7 +23,8 @@
 
 	<title>Ajout</title>
 
-	<link href="css/app.css" rel="stylesheet">
+	<link href="assets/css/app.css" rel="stylesheet">
+        <link href="" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -36,76 +48,60 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                                            <a class="sidebar-link" href="./AjoutBouquet.jsp">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						<a class="sidebar-link" href="AjoutActivite.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout activite</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-            </a>
-					</li>
-
-					<li class="sidebar-header">
-						Tools & Components
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+						<a class="sidebar-link" href="ActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Activite bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
+						<a class="sidebar-link" href="TypeLocalisation.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="Localisation.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">localisation</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./NouveauVoyage.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Nouveau Voyage</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
+                                        
+                                        <li class="sidebar-header">
+						Recherche
+					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche Activite par Bouquet</span>
             </a>
 					</li>
-
-					<li class="sidebar-header">
-						Plugins & Addons
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="charts-chartjs.html">
-              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheVoyageParActivite.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche voyage par Activite</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="maps-google.html">
-              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./FiltreVoyageParPrix.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Prix</span>
             </a>
 					</li>
 				</ul>
@@ -289,39 +285,34 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Blank Page</h1>
+					<h1 class="h3 mb-3">Liste de voyage par Activite</h1>
 
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Empty card</h5>
-								</div>
-								<div class="card-body">
-                                    <div class="card-body">
                                         <div class="m-sm-4">
-                                            <form>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Name</label>
-                                                    <input class="form-control form-control-lg" type="text" name="name" placeholder="Enter your name" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Company</label>
-                                                    <input class="form-control form-control-lg" type="text" name="company" placeholder="Enter your company name" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Email</label>
-                                                    <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter your email" />
-                                                </div>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Password</label>
-                                                    <input class="form-control form-control-lg" type="password" name="password" placeholder="Enter password" />
-                                                </div>
-                                                <div class="text-center mt-3">
-                                                    <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>
-                                                    <!-- <button type="submit" class="btn btn-lg btn-primary">Sign up</button> -->
-                                                </div>
-                                            </form>
+                                            <table class="table table-hover my-0">
+                                                <thead>
+                                                    <tr>
+                                                            <th class="d-none d-xl-table-cell">Nom Voyage</th>
+                                                            <th class="d-none d-xl-table-cell">Nom Bouquet</th>
+                                                            <th class="d-none d-xl-table-cell">Duree</th>
+                                                            <th class="d-none d-xl-table-cell">Nom activite</th>
+                                                            <th class="d-none d-md-table-cell">Nombre</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <% for(int i=0; i<act.size();i++){%>
+                                                    <tr>
+                                                        <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomvoyage()); %></td>
+                                                        <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNombouquet()); %></td>
+                                                        <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomtypeduree()); %></td>
+                                                        <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomactivite()); %></td>
+                                                        <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNombreactivite()); %></td>
+                                                    </tr>
+                                                <%}%>	
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
 								</div>
@@ -362,7 +353,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.js"></script>
+	<script src="assets/js/app.js"></script>
 
 </body>
 

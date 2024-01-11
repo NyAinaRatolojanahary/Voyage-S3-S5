@@ -1,14 +1,8 @@
-<%@page import="models.Activite"%>
-<%@page import="models.Bouquet"%>
-<%@page import="java.util.ArrayList"%>
-
-<%
-    Activite act = new Activite();
-    ArrayList<Activite> lsact = act.selectAll();
-    
-    Bouquet bq = new Bouquet();
-    ArrayList<Bouquet> lsbq = bq.selectAll();
-%>
+<%-- 
+    Document   : FiltreVoyageParPrix
+    Created on : 11 janv. 2024, 01:43:43
+    Author     : Ny Aina Ratolo
+--%>
 
 <%
     Exception exp = (Exception)request.getAttribute("exception");
@@ -18,6 +12,7 @@
     }
 %>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -113,7 +108,6 @@
               <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Prix</span>
             </a>
 					</li>
-                                        
 				</ul>
 
 				<div class="sidebar-cta">
@@ -294,45 +288,32 @@
 
 			<main class="content">
 				<div class="container-fluid p-0">
-					<h1 class="h3 mb-3">Ajout d'activite dans un bouquet</h1>
+
+					<h1 class="h3 mb-3">Filtre de voyage par prix</h1>
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
 								<div class="card-body">
-                                                                    <div class="card-body">
-                                                                        <div class="m-sm-4">
-                                                                            <form action="./AjoutActiviteBouquetServlet" method="post">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Activites</label>
-
-                                                                                    <select class="form-select mb-3" name="activite">
-                                                                                        <% for(int i=0; i<lsact.size();i++){%>
-                                                                                        <option value="<%out.print(lsact.get(i).getIdActivite());%>"><%out.print(lsact.get(i).getNomActivite());%></option>
-                                                                                        <%}%>
-                                                                                     </select>
-                                                                                </div>
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Bouquet</label>
-
-                                                                                    <select class="form-select mb-3" name="bouquet">
-                                                                                        <% for(int i=0; i<lsbq.size();i++){%>
-                                                                                        <option value="<%out.print(lsbq.get(i).getIdBouquet());%>"><%out.print(lsbq.get(i).getNomBouquet());%></option>
-                                                                                        <%}%>
-                                                                                     </select>
-                                                                                </div>
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Nombre</label>
-                                                                                    <input class="form-control form-control-lg" type="number" name="nombre" placeholder="Nombre" />
-                                                                                </div>
-                                                                                     <% if(errMess!= null){%>
-                                                                                        <div class="badge bg-danger"><%= errMess%></div>
-                                                                                    <%}%>
-                                                                                <div class="text-center mt-3">
-                                                                                     <button type="submit" class="btn btn-lg btn-primary">Valider</button> 
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
+                                    <div class="card-body">
+                                        <div class="m-sm-4">
+                                            <form action="./FiltreVoyageParPrixServlet" method="post">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Prix minimum</label>
+                                                    <input class="form-control form-control-lg" type="number" name="min" placeholder="Entrer ici le prix min" />
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label class="form-label">Prix maximum</label>
+                                                    <input class="form-control form-control-lg" type="number" name="max" placeholder="Entrer ici le prix max" />
+                                                </div>
+                                                 <% if(errMess!= null){%>
+                                                    <div class="badge bg-danger"><%= errMess%></div>
+                                                <%}%>
+                                                <div class="text-center mt-3">
+                                                     <button type="submit" class="btn btn-lg btn-primary">Valider</button> 
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 						</div>

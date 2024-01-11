@@ -1,23 +1,14 @@
-<%@page import="models.Activite"%>
-<%@page import="models.Bouquet"%>
+<%-- 
+    Document   : ListeVoyageFiltre
+    Created on : 11 janv. 2024, 02:25:19
+    Author     : Ny Aina Ratolo
+--%>
+
 <%@page import="java.util.ArrayList"%>
+<%@page import="models.FiltreVoyageParPrix" %>
+<% ArrayList<FiltreVoyageParPrix> act = (ArrayList<FiltreVoyageParPrix>) request.getAttribute("lsFiltre"); %>
 
-<%
-    Activite act = new Activite();
-    ArrayList<Activite> lsact = act.selectAll();
-    
-    Bouquet bq = new Bouquet();
-    ArrayList<Bouquet> lsbq = bq.selectAll();
-%>
-
-<%
-    Exception exp = (Exception)request.getAttribute("exception");
-    String errMess = null;
-    if(exp!= null){
-        errMess = exp.getMessage();
-    }
-%>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -63,25 +54,25 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="./AjoutActivite.jsp">
+						<a class="sidebar-link" href="AjoutActivite.jsp">
               <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout activite</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="./ActiviteBouquet.jsp">
+						<a class="sidebar-link" href="ActiviteBouquet.jsp">
               <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Activite bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="./TypeLocalisation.jsp">
+						<a class="sidebar-link" href="TypeLocalisation.jsp">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
             </a>
 					</li>
                                         
                                         <li class="sidebar-item">
-						<a class="sidebar-link" href="./Localisation.jsp">
+						<a class="sidebar-link" href="Localisation.jsp">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">localisation</span>
             </a>
 					</li>
@@ -113,7 +104,6 @@
               <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Prix</span>
             </a>
 					</li>
-                                        
 				</ul>
 
 				<div class="sidebar-cta">
@@ -294,45 +284,34 @@
 
 			<main class="content">
 				<div class="container-fluid p-0">
-					<h1 class="h3 mb-3">Ajout d'activite dans un bouquet</h1>
+
+					<h1 class="h3 mb-3">Liste de voyage par filtre de prix</h1>
+
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
-								<div class="card-body">
-                                                                    <div class="card-body">
-                                                                        <div class="m-sm-4">
-                                                                            <form action="./AjoutActiviteBouquetServlet" method="post">
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Activites</label>
-
-                                                                                    <select class="form-select mb-3" name="activite">
-                                                                                        <% for(int i=0; i<lsact.size();i++){%>
-                                                                                        <option value="<%out.print(lsact.get(i).getIdActivite());%>"><%out.print(lsact.get(i).getNomActivite());%></option>
-                                                                                        <%}%>
-                                                                                     </select>
-                                                                                </div>
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Bouquet</label>
-
-                                                                                    <select class="form-select mb-3" name="bouquet">
-                                                                                        <% for(int i=0; i<lsbq.size();i++){%>
-                                                                                        <option value="<%out.print(lsbq.get(i).getIdBouquet());%>"><%out.print(lsbq.get(i).getNomBouquet());%></option>
-                                                                                        <%}%>
-                                                                                     </select>
-                                                                                </div>
-                                                                                <div class="mb-3">
-                                                                                    <label class="form-label">Nombre</label>
-                                                                                    <input class="form-control form-control-lg" type="number" name="nombre" placeholder="Nombre" />
-                                                                                </div>
-                                                                                     <% if(errMess!= null){%>
-                                                                                        <div class="badge bg-danger"><%= errMess%></div>
-                                                                                    <%}%>
-                                                                                <div class="text-center mt-3">
-                                                                                     <button type="submit" class="btn btn-lg btn-primary">Valider</button> 
-                                                                                </div>
-                                                                            </form>
-                                                                        </div>
-                                                                    </div>
+                                        <div class="m-sm-4">
+                                            <h1 class="card-title mb-0">Prix min :<% out.print((act.get(0)).getPrixMin()); %></h1> <h1 class="card-title mb-0">Prix max :<% out.print((act.get(0)).getPrixMax()); %></h1>
+                                            <table class="table table-hover my-0">
+                                                <thead>
+                                                    <tr>
+                                                            <th class="d-none d-xl-table-cell">Nom Voyage</th>
+                                                            <th class="d-none d-xl-table-cell">Nom Bouquet</th>
+                                                            <th class="d-none d-md-table-cell">Prix</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                <% for(int i=0; i<act.size();i++){%>
+                                                    <tr>
+                                                        <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomVoyage()); %></td>
+                                                        <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getNomBouquet()); %></td>
+                                                        <td class="d-none d-xl-table-cell"><% out.print((act.get(i)).getPrix()); %></td>
+                                                    </tr>
+                                                <%}%>	
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 						</div>

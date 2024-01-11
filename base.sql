@@ -28,7 +28,7 @@ create table activiteBouquet(
     idActiviteBouquet serial Primary Key,
     idActivite int,
     idBouquet int,
-    dureeActivite decimal,
+    nombre int,
     Foreign Key (idActivite) References activite(idActivite),
     Foreign Key (idBouquet) References bouquet(idBouquet)
 );
@@ -59,10 +59,10 @@ insert into localisation(idLocalisation,nomLocalisation,idTypeLocalisation) valu
 
 
 
-insert into activiteBouquet(idActiviteBouquet,idActivite,idBouquet,dureeActivite) values(default,1,1,10),
-(default,1,2,20),
-(default,1,3,30),
-(default,1,4,40);
+insert into activiteBouquet(idActiviteBouquet,idActivite,idBouquet,nombre) values(default,1,1,1),
+(default,1,2,2),
+(default,1,3,3),
+(default,1,4,4);
 
 
 
@@ -73,3 +73,18 @@ create table voyage(
     bouquet int,
     dureeVoyage int
 );
+
+insert into voyage values(default,2,1,10),
+(default,1,2,8),
+(default,3,3,7),
+(default,2,4,5);
+
+
+select voyage.idVoyage,localisation.nomLocalisation,typeLocalisation.nomTypeLocalisation,bouquet.nomBouquet,voyage.dureeVoyage,activite.nomActivite
+from voyage
+join localisation on voyage.localisation = localisation.idLocalisation
+join typeLocalisation on localisation.idTypeLocalisation = typeLocalisation.idTypeLocalisation
+join bouquet on voyage.bouquet = bouquet.idBouquet
+join activiteBouquet on activiteBouquet.idBouquet = bouquet.idBouquet
+join activite on activiteBouquet.idActivite = activite.idActivite
+order by voyage.idVoyage;

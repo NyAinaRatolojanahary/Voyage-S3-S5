@@ -1,3 +1,12 @@
+<%
+    Exception exp = (Exception)request.getAttribute("exception");
+    String errMess = null;
+    if(exp!= null){
+        errMess = exp.getMessage();
+    }
+%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +46,7 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
+                                            <a class="sidebar-link" href="./AjoutBouquet.jsp">
               <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
             </a>
 					</li>
@@ -54,65 +63,43 @@
             </a>
 					</li>
 
-					<li class="sidebar-item active">
+					<li class="sidebar-item">
 						<a class="sidebar-link" href="./TypeLocalisation.jsp">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
             </a>
 					</li>
                                         
-                                        <li class="sidebar-item active">
+                                        <li class="sidebar-item">
 						<a class="sidebar-link" href="./Localisation.jsp">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">localisation</span>
             </a>
 					</li>
-
-					<li class="sidebar-header">
-						Tools & Components
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./NouveauVoyage.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Nouveau Voyage</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
+                                        
+                                        <li class="sidebar-header">
+						Recherche
+					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche Activite par Bouquet</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheVoyageParActivite.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche voyage par Activite</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-            </a>
-					</li>
-
-					<li class="sidebar-header">
-						Plugins & Addons
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="charts-chartjs.html">
-              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="maps-google.html">
-              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./FiltreVoyageParPrix.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Prix</span>
             </a>
 					</li>
 				</ul>
@@ -296,23 +283,26 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Blank Page</h1>
-
+					<h1 class="h3 mb-3">Ajout Activite</h1>
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
-								
 								<div class="card-body">
                                     <div class="card-body">
                                         <div class="m-sm-4">
-                                            <form>
+                                            <form action="./AjoutActiviteServlet" method="post">
                                                 <div class="mb-3">
                                                     <label class="form-label">Ajout d'activite</label>
-                                                    <input class="form-control form-control-lg" type="text" name="name" placeholder="Entrer ici l'activite que vous avez choisie" />
+                                                    <input class="form-control form-control-lg" type="text" name="nom" placeholder="Entrer ici l'activite que vous avez choisie" />
                                                 </div>
-                                                
+                                                <div class="mb-3">
+                                                    <label class="form-label">Prix de l'activite</label>
+                                                    <input class="form-control form-control-lg" type="text" name="prix" placeholder="Entrer ici le prix" />
+                                                </div>
+                                                 <% if(errMess!= null){%>
+                                                    <div class="badge bg-danger"><%= errMess%></div>
+                                                <%}%>
                                                 <div class="text-center mt-3">
-<!--                                                    <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>-->
                                                      <button type="submit" class="btn btn-lg btn-primary">Valider</button> 
                                                 </div>
                                             </form>

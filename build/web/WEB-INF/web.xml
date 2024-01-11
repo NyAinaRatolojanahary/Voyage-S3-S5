@@ -1,12 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
-        <servlet-name>ActiviterBouquet</servlet-name>
-        <servlet-class>controlers.ActiviterBouquet</servlet-class>
+        <servlet-name>AjoutActiviteServlet</servlet-name>
+        <servlet-class>controlers.AjoutActiviteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutBouquetServlet</servlet-name>
+        <servlet-class>controlers.AjoutBouquetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutActiviteBouquetServlet</servlet-name>
+        <servlet-class>controlers.AjoutActiviteBouquetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ActiviteBouquetServlet</servlet-name>
+        <servlet-class>controlers.ActiviteBouquetServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutNouveauVoyageServlet</servlet-name>
+        <servlet-class>controlers.AjoutNouveauVoyageServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VoyageParActivite</servlet-name>
+        <servlet-class>controlers.VoyageParActivite</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>VoyageParActiviteServlet</servlet-name>
+        <servlet-class>controlers.VoyageParActiviteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FiltreVoyageParPrixServlet</servlet-name>
+        <servlet-class>controlers.FiltreVoyageParPrixServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ActiviterBouquet</servlet-name>
-        <url-pattern>/ActiviterBouquet</url-pattern>
+        <servlet-name>AjoutActiviteServlet</servlet-name>
+        <url-pattern>/AjoutActiviteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutBouquetServlet</servlet-name>
+        <url-pattern>/AjoutBouquetServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutActiviteBouquetServlet</servlet-name>
+        <url-pattern>/AjoutActiviteBouquetServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ActiviteBouquetServlet</servlet-name>
+        <url-pattern>/ActiviteBouquetServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutNouveauVoyageServlet</servlet-name>
+        <url-pattern>/AjoutNouveauVoyageServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VoyageParActivite</servlet-name>
+        <url-pattern>/VoyageParActivite</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VoyageParActiviteServlet</servlet-name>
+        <url-pattern>/VoyageParActiviteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FiltreVoyageParPrixServlet</servlet-name>
+        <url-pattern>/FiltreVoyageParPrixServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

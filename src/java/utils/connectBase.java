@@ -15,7 +15,8 @@ public static Connection connect() throws SQLException, Exception {
         try {
             Class.forName("org.postgresql.Driver");
             Connection connecter = DriverManager.getConnection("jdbc:postgresql://localhost:5432/voyage",
-                "postgres", "Milliardaire2621");
+//                "postgres", "Milliardaire2621");
+                    "postgres", "root");
             return connecter;
         } catch (Exception e) {
             e.printStackTrace();

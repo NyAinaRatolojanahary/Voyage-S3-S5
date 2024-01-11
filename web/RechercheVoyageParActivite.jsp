@@ -1,3 +1,18 @@
+<%-- 
+    Document   : RechercheVoyageParActivite
+    Created on : 11 janv. 2024, 01:09:20
+    Author     : Ny Aina Ratolo
+--%>
+
+<%@page import="models.Activite"%>
+<%@page import="java.util.ArrayList"%>
+
+<%
+    Activite act = new Activite();
+    ArrayList<Activite> lsact = act.selectAll();
+%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,15 +23,12 @@
 	<meta name="description" content="Responsive Admin &amp; Dashboard Template based on Bootstrap 5">
 	<meta name="author" content="AdminKit">
 	<meta name="keywords" content="adminkit, bootstrap, bootstrap 5, admin, dashboard, template, responsive, css, sass, html, theme, front-end, ui kit, web">
-
-	<link rel="preconnect" href="https://fonts.gstatic.com">
 	<link rel="shortcut icon" href="img/icons/icon-48x48.png" />
 
-	<link rel="canonical" href="https://demo-basic.adminkit.io/pages-blank.html" />
+	<title>Ajout</title>
 
-	<title>Blank Page</title>
-
-	<link href="css/app.css" rel="stylesheet">
+	<link href="assets/css/app.css" rel="stylesheet">
+        <link href="" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 
@@ -30,7 +42,7 @@
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
-						Pages
+						Ajout
 					</li>
 
 					<li class="sidebar-item">
@@ -40,76 +52,60 @@
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-profile.html">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
+                                            <a class="sidebar-link" href="./AjoutBouquet.jsp">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-in.html">
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
+						<a class="sidebar-link" href="./AjoutActivite.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout activite</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="pages-sign-up.html">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
-            </a>
-					</li>
-
-					<li class="sidebar-item active">
-						<a class="sidebar-link" href="pages-blank.html">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-            </a>
-					</li>
-
-					<li class="sidebar-header">
-						Tools & Components
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-buttons.html">
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
+						<a class="sidebar-link" href="./ActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Activite bouquet</span>
             </a>
 					</li>
 
 					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-forms.html">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
+						<a class="sidebar-link" href="./TypeLocalisation.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-cards.html">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./Localisation.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">localisation</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ui-typography.html">
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./NouveauVoyage.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Nouveau Voyage</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="icons-feather.html">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
+                                        
+                                        <li class="sidebar-header">
+						Recherche
+					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche Activite par Bouquet</span>
             </a>
 					</li>
-
-					<li class="sidebar-header">
-						Plugins & Addons
-					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="charts-chartjs.html">
-              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheVoyageParActivite.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche voyage par Activite</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="maps-google.html">
-              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./FiltreVoyageParPrix.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Prix</span>
             </a>
 					</li>
 				</ul>
@@ -293,84 +289,34 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Blank Page</h1>
+					<h1 class="h3 mb-3">Recherche voyage par Activite</h1>
 
 					<div class="row">
 						<div class="col-12">
 							<div class="card">
-								<div class="card-header">
-									<h5 class="card-title mb-0">Empty card</h5>
-								</div>
+								
 								<div class="card-body">
-									<table class="table table-hover my-0">
-										<thead>
-											<tr>
-												<th>Name</th>
-												<th class="d-none d-xl-table-cell">Start Date</th>
-												<th class="d-none d-xl-table-cell">End Date</th>
-												<th>Status</th>
-												<th class="d-none d-md-table-cell">Assignee</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<td>Project Apollo</td>
-												<td class="d-none d-xl-table-cell">01/01/2021</td>
-												<td class="d-none d-xl-table-cell">31/06/2021</td>
-												<td><span class="badge bg-success">Done</span></td>
-												<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-											</tr>
-											<tr>
-												<td>Project Fireball</td>
-												<td class="d-none d-xl-table-cell">01/01/2021</td>
-												<td class="d-none d-xl-table-cell">31/06/2021</td>
-												<td><span class="badge bg-danger">Cancelled</span></td>
-												<td class="d-none d-md-table-cell">William Harris</td>
-											</tr>
-											<tr>
-												<td>Project Hades</td>
-												<td class="d-none d-xl-table-cell">01/01/2021</td>
-												<td class="d-none d-xl-table-cell">31/06/2021</td>
-												<td><span class="badge bg-success">Done</span></td>
-												<td class="d-none d-md-table-cell">Sharon Lessman</td>
-											</tr>
-											<tr>
-												<td>Project Nitro</td>
-												<td class="d-none d-xl-table-cell">01/01/2021</td>
-												<td class="d-none d-xl-table-cell">31/06/2021</td>
-												<td><span class="badge bg-warning">In progress</span></td>
-												<td class="d-none d-md-table-cell">Vanessa Tucker</td>
-											</tr>
-											<tr>
-												<td>Project Phoenix</td>
-												<td class="d-none d-xl-table-cell">01/01/2021</td>
-												<td class="d-none d-xl-table-cell">31/06/2021</td>
-												<td><span class="badge bg-success">Done</span></td>
-												<td class="d-none d-md-table-cell">William Harris</td>
-											</tr>
-											<tr>
-												<td>Project X</td>
-												<td class="d-none d-xl-table-cell">01/01/2021</td>
-												<td class="d-none d-xl-table-cell">31/06/2021</td>
-												<td><span class="badge bg-success">Done</span></td>
-												<td class="d-none d-md-table-cell">Sharon Lessman</td>
-											</tr>
-											<tr>
-												<td>Project Romeo</td>
-												<td class="d-none d-xl-table-cell">01/01/2021</td>
-												<td class="d-none d-xl-table-cell">31/06/2021</td>
-												<td><span class="badge bg-success">Done</span></td>
-												<td class="d-none d-md-table-cell">Christina Mason</td>
-											</tr>
-											<tr>
-												<td>Project Wombat</td>
-												<td class="d-none d-xl-table-cell">01/01/2021</td>
-												<td class="d-none d-xl-table-cell">31/06/2021</td>
-												<td><span class="badge bg-warning">In progress</span></td>
-												<td class="d-none d-md-table-cell">William Harris</td>
-											</tr>
-										</tbody>
-									</table>
+                                    <div class="card-body">
+                                        <div class="m-sm-4">
+                                            <form action="./VoyageParActiviteServlet" method="POST">
+                                                <div class="mb-3">
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Activites</label>
+                                                        <select class="form-select mb-3" name="activite">
+                                                            <% for(int i=0; i<lsact.size();i++){%>
+                                                            <option value="<%out.print(lsact.get(i).getIdActivite());%>"><%out.print(lsact.get(i).getNomActivite());%></option>
+                                                            <%}%>
+                                                         </select>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="text-center mt-3">
+<!--                                                    <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>-->
+                                                     <button type="submit" class="btn btn-lg btn-primary">Valider</button> 
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
 								</div>
 							</div>
 						</div>
@@ -409,7 +355,7 @@
 		</div>
 	</div>
 
-	<script src="js/app.js"></script>
+	<script src="assets/js/app.js"></script>
 
 </body>
 

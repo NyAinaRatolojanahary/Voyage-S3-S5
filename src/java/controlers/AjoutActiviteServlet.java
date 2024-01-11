@@ -5,23 +5,20 @@
  */
 package controlers;
 
-import models.ActiviteBouquet;
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import models.Activite;
 
 /**
  *
- * @author LA BOSS
+ * @author Ny Aina Ratolo
  */
-public class ActiviterBouquet extends HttpServlet {
+public class AjoutActiviteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,10 +37,10 @@ public class ActiviterBouquet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ActiviterBouquet</title>");            
+            out.println("<title>Servlet AjoutActiviteServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ActiviterBouquet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AjoutActiviteServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -75,17 +72,19 @@ public class ActiviterBouquet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int idBouquet = Integer.parseInt(request.getParameter("idBouquet"));
-        
         try {
-            ActiviteBouquet act = new ActiviteBouquet();
-            ArrayList<ActiviteBouquet> atb = act.getActiviteByIdBouquet(idBouquet);
-            System.out.println(atb.size());
-            request.setAttribute("listActivite", atb);
-            RequestDispatcher disp = request.getRequestDispatcher("ListeActivite.jsp");
-            disp.forward(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(ActiviterBouquet.class.getName()).log(Level.SEVERE, null, ex);
+            String nom = request.getParameter("nom");
+            double prix = Double.parseDouble(request.getParameter("prix"));
+            
+            Activite act = new Activite();
+            act.setNomActivite(nom);
+            act.setPrix(prix);
+            act.insertActivite(act.getNomActivite(), act.getPrix());
+            response.sendRedirect("AjoutActivite.jsp");
+        } catch (Exception e) {
+            request.setAttribute("exception", e);
+            RequestDispatcher rqs = request.getRequestDispatcher("AjoutActivite.jsp");
+            rqs.forward(request, response);
         }
     }
 
