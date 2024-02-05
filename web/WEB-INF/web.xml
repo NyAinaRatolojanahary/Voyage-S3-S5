@@ -32,6 +32,42 @@
         <servlet-name>FiltreVoyageParPrixServlet</servlet-name>
         <servlet-class>controlers.FiltreVoyageParPrixServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AjoutTypeLocalisationServlet</servlet-name>
+        <servlet-class>controlers.AjoutTypeLocalisationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutLocalisationServlet</servlet-name>
+        <servlet-class>controlers.AjoutLocalisationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutBilletServlet</servlet-name>
+        <servlet-class>controlers.AjoutBilletServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutNouveauEmployee</servlet-name>
+        <servlet-class>controlers.AjoutNouveauEmployee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutAffectationServlet</servlet-name>
+        <servlet-class>controlers.AjoutAffectationServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FiltreVoyageParBeneficeServlet</servlet-name>
+        <servlet-class>controlers.FiltreVoyageParBeneficeServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutNouveauTypeEmployee</servlet-name>
+        <servlet-class>controlers.AjoutNouveauTypeEmployee</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutClientServlet</servlet-name>
+        <servlet-class>controlers.AjoutClientServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AjoutVenteServlet</servlet-name>
+        <servlet-class>controlers.AjoutVenteServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AjoutActiviteServlet</servlet-name>
         <url-pattern>/AjoutActiviteServlet</url-pattern>
@@ -63,6 +99,42 @@
     <servlet-mapping>
         <servlet-name>FiltreVoyageParPrixServlet</servlet-name>
         <url-pattern>/FiltreVoyageParPrixServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutTypeLocalisationServlet</servlet-name>
+        <url-pattern>/AjoutTypeLocalisationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutLocalisationServlet</servlet-name>
+        <url-pattern>/AjoutLocalisationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutBilletServlet</servlet-name>
+        <url-pattern>/AjoutBilletServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutNouveauEmployee</servlet-name>
+        <url-pattern>/AjoutNouveauEmployee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutAffectationServlet</servlet-name>
+        <url-pattern>/AjoutAffectationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FiltreVoyageParBeneficeServlet</servlet-name>
+        <url-pattern>/FiltreVoyageParBeneficeServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutNouveauTypeEmployee</servlet-name>
+        <url-pattern>/AjoutNouveauTypeEmployee</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutClientServlet</servlet-name>
+        <url-pattern>/AjoutClientServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AjoutVenteServlet</servlet-name>
+        <url-pattern>/AjoutVenteServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

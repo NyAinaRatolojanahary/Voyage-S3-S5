@@ -25,40 +25,59 @@
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
+				<a class="sidebar-brand" href="index.jsp">
+          <span class="align-middle">Vakansy</span>
         </a>
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
 						Pages
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="index.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-                                            <a class="sidebar-link" href="./AjoutBouquet.jsp">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
-            </a>
+                                        
+                                        <li class="sidebar-header">
+						Activite
 					</li>
-
-					<li class="sidebar-item">
+                                        
+                                        <li class="sidebar-item">
 						<a class="sidebar-link" href="AjoutActivite.jsp">
               <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout activite</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ActiviteBouquet.jsp">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Activite bouquet</span>
+                                        
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="AjoutBillet.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout Billet Stock</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="ListeStockBilletActivite.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Liste billet d'activite disponible en stock</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-header">
+						Bouquet
+					</li>
+                                        
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="./AjoutBouquet.jsp">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-header">
+						Localisation
+					</li>
+                                        
+                                        <li class="sidebar-item">
 						<a class="sidebar-link" href="TypeLocalisation.jsp">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
             </a>
@@ -70,14 +89,8 @@
             </a>
 					</li>
                                         
-                                        <li class="sidebar-item">
-						<a class="sidebar-link" href="./NouveauVoyage.jsp">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Nouveau Voyage</span>
-            </a>
-					</li>
-                                        
                                         <li class="sidebar-header">
-						Recherche
+						Activite Bouquet
 					</li>
                                         
                                         <li class="sidebar-item">
@@ -87,8 +100,18 @@
 					</li>
                                         
                                         <li class="sidebar-item">
-						<a class="sidebar-link" href="./RechercheVoyageParActivite.jsp">
-              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche voyage par Activite</span>
+						<a class="sidebar-link" href="ActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Ajout d'activite dans un bouquet</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-header">
+						Voyage
+					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./NouveauVoyage.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Nouveau Voyage</span>
             </a>
 					</li>
                                         
@@ -97,6 +120,71 @@
               <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Prix</span>
             </a>
 					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./FiltreVoyageParBenefice.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Benefice</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-header">
+						Client
+					</li>
+                                        
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="AjoutClient.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout Client</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="AjoutVente.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Effectuer une Vente de billet de voyage</span>
+            </a>
+					</li>
+                                         
+                                        <li class="sidebar-header">
+						Employee
+					</li>
+                                        
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="./AjoutEmployee.jsp">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Ajout de nouveau Employee</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="./Affectation.jsp">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Affectation d'employee</span>
+            </a>
+					</li>
+                                        
+					
+
+					
+
+					
+                                        
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="./ListePoste.jsp">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Liste Employee</span>
+            </a>
+					</li>
+
+                                        
+                                        <li class="sidebar-header">
+						Recherche
+					</li>
+                                        
+                                        
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheVoyageParActivite.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche voyage par Activite</span>
+            </a>
+					</li>
+
 				</ul>
 
 				<div class="sidebar-cta">
@@ -265,7 +353,7 @@
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
+								<a class="dropdown-item" href="index.jsp"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">Log out</a>

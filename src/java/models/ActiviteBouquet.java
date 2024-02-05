@@ -106,13 +106,15 @@ public class ActiviteBouquet {
 
     public ArrayList<ActiviteBouquet> getActiviteByIdBouquet(int idBouquet) throws SQLException, Exception{
         ArrayList<ActiviteBouquet> valiny = new ArrayList<ActiviteBouquet>();
-        String requete = "Select bouquet.nomBouquet,activite.nomActivite,activiteBouquet.nombreActivite from activiteBouquet join bouquet on bouquet.idBouquet=activiteBouquet.idBouquet join activite on activite.idActivite=activiteBouquet.idActivite where bouquet.idbouquet = "+idBouquet+";";
+        String requete = "Select activiteBouquet.idBouquet,bouquet.nomBouquet,activiteBouquet.idActivite,activite.nomActivite,activiteBouquet.nombreActivite from activiteBouquet join bouquet on bouquet.idBouquet=activiteBouquet.idBouquet join activite on activite.idActivite=activiteBouquet.idActivite where bouquet.idbouquet = "+idBouquet+";";
         Connection con = connectBase.connect();
         Statement state = con.createStatement();
         ResultSet rs = state.executeQuery(requete);
         while (rs.next()) {
             ActiviteBouquet result = new ActiviteBouquet();
+            result.setIdBouquet(rs.getInt("idBouquet"));
             result.setNomActivite(rs.getString("nomBouquet"));
+            result.setIdActivite(rs.getInt("idActivite"));
             result.setNomBouquet(rs.getString("nomActivite"));
             result.setNombre(rs.getInt("nombreActivite"));
             valiny.add(result);

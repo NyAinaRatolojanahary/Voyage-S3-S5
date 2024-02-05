@@ -80,10 +80,10 @@ public class TypeLocalisation {
         state.close();
         return valiny;
     }
-    public void insertActivite(String nom)throws SQLException, Exception{
+    public void insertTypeLocalisation(String nom)throws SQLException, Exception{
         Connection se_connecter = connectBase.connect();
         Statement state = se_connecter.createStatement();
-        String requete = "insert into activite(nomActivite) values('"+nom+"')";
+        String requete = "insert into typeLocalisation(nomTypeLocalisation) values('"+nom+"')";
         try{
             int resultat = state.executeUpdate(requete);
         }

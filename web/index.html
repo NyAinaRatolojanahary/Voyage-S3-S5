@@ -21,40 +21,59 @@
 	<div class="wrapper">
 		<nav id="sidebar" class="sidebar js-sidebar">
 			<div class="sidebar-content js-simplebar">
-				<a class="sidebar-brand" href="index.html">
-          <span class="align-middle">AdminKit</span>
+				<a class="sidebar-brand" href="index.jsp">
+          <span class="align-middle">Vakansy</span>
         </a>
 
 				<ul class="sidebar-nav">
 					<li class="sidebar-header">
 						Pages
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="index.html">
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="index.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Dashboard</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-                                            <a class="sidebar-link" href="./AjoutBouquet.jsp">
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
-            </a>
+                                        
+                                        <li class="sidebar-header">
+						Activite
 					</li>
-
-					<li class="sidebar-item">
+                                        
+                                        <li class="sidebar-item">
 						<a class="sidebar-link" href="AjoutActivite.jsp">
               <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout activite</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
-						<a class="sidebar-link" href="ActiviteBouquet.jsp">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Activite bouquet</span>
+                                        
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="AjoutBillet.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout Billet Stock</span>
             </a>
 					</li>
-
-					<li class="sidebar-item">
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="ListeStockBilletActivite.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Liste billet d'activite disponible en stock</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-header">
+						Bouquet
+					</li>
+                                        
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="./AjoutBouquet.jsp">
+              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Ajout bouquet</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-header">
+						Localisation
+					</li>
+                                        
+                                        <li class="sidebar-item">
 						<a class="sidebar-link" href="TypeLocalisation.jsp">
               <i class="align-middle" data-feather="book"></i> <span class="align-middle">type localisation</span>
             </a>
@@ -66,14 +85,8 @@
             </a>
 					</li>
                                         
-                                        <li class="sidebar-item">
-						<a class="sidebar-link" href="./NouveauVoyage.jsp">
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Nouveau Voyage</span>
-            </a>
-					</li>
-                                        
                                         <li class="sidebar-header">
-						Recherche
+						Activite Bouquet
 					</li>
                                         
                                         <li class="sidebar-item">
@@ -83,14 +96,88 @@
 					</li>
                                         
                                         <li class="sidebar-item">
-						<a class="sidebar-link" href="./RechercheVoyageParActivite.jsp">
-              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche voyage par Activite</span>
+						<a class="sidebar-link" href="ActiviteBouquet.jsp">
+              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Ajout d'activite dans un bouquet</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-header">
+						Voyage
+					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./NouveauVoyage.jsp">
+              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Nouveau Voyage</span>
             </a>
 					</li>
                                         
                                         <li class="sidebar-item">
 						<a class="sidebar-link" href="./FiltreVoyageParPrix.jsp">
               <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Prix</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./FiltreVoyageParBenefice.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Filtre voyage par Benefice</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-header">
+						Client
+					</li>
+                                        
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="AjoutClient.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Ajout Client</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="AjoutVente.jsp">
+              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Effectuer une Vente de billet de voyage</span>
+            </a>
+					</li>
+                                         
+                                        <li class="sidebar-header">
+						Employee
+					</li>
+                                        
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="./AjoutEmployee.jsp">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Ajout de nouveau Employee</span>
+            </a>
+					</li>
+                                        
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="./Affectation.jsp">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Affectation d'employee</span>
+            </a>
+					</li>
+                                        
+					
+
+					
+
+					
+                                        
+                                        <li class="sidebar-item">
+                                            <a class="sidebar-link" href="./ListePoste.jsp">
+              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Liste Employee</span>
+            </a>
+					</li>
+
+                                        
+                                        <li class="sidebar-header">
+						Recherche
+					</li>
+                                        
+                                        
+                                        
+                                        <li class="sidebar-item">
+						<a class="sidebar-link" href="./RechercheVoyageParActivite.jsp">
+              <i class="align-middle" data-feather="search"></i> <span class="align-middle">Recherche voyage par Activite</span>
             </a>
 					</li>
 
@@ -262,7 +349,7 @@
 								<a class="dropdown-item" href="pages-profile.html"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
+								<a class="dropdown-item" href="index.jsp"><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
 								<div class="dropdown-divider"></div>
 								<a class="dropdown-item" href="#">Log out</a>
@@ -275,31 +362,47 @@
 			<main class="content">
 				<div class="container-fluid p-0">
 
-					<h1 class="h3 mb-3">Ajout Bouquet</h1>
+					<h1 class="h3 mb-3">Statistique</h1>
 
 					<div class="row">
-						<div class="col-12">
-							<div class="card">
-                                        <div class="m-sm-4">
-                                            <form>
-                                                <div class="mb-3">
-                                                    <label class="form-label">Nom Bouquet</label>
-                                                    <input class="form-control form-control-lg" type="text" name="name" placeholder="Entrer votre choix de bouquet" />
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="m-sm-4">
+                                                        <div class="card-header">
+                                                            <h5 class="card-subtitle text-muted">Nombre de vente par genre de client</h5>
+                                                        </div>
+                                                        <div class="card-body">
+                                                                <div class="chart chart-sm">
+                                                                        <canvas id="chartjs-pie"></canvas>
+                                                                </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
-                                   
-                                                <div class="text-center mt-3">
-<!--                                                    <a href="index.html" class="btn btn-lg btn-primary">Sign up</a>-->
-                                                    <button type="submit" class="btn btn-lg btn-primary">Sign up</button> 
-                                                </div>
-                                            </form>
+                                            </div>
                                         </div>
-                                    </div>
-								</div>
-							</div>
-						</div>
-					</div>
+                                </div>
+                            
+                                <div class="container-fluid p-0">
 
-				</div>
+					<h1 class="h3 mb-3">Statistique</h1>
+
+					<div class="row">
+                                            <div class="col-12">
+                                                <div class="card">
+                                                    <div class="m-sm-4">
+                                                        <div class="card-header">
+                                                            <h5 class="card-subtitle text-muted">Nombre de vente par genre de client par bouquet</h5>
+                                                        </div>
+                                                        <div class="card-body">
+                                                                <div class="chart chart-sm">
+                                                                        <canvas id="chartjs-bar"></canvas>
+                                                                </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
 			</main>
 
 			<footer class="footer">
@@ -333,7 +436,88 @@
 	</div>
 
 	<script src="assets/js/app.js"></script>
+        
+        <script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Pie chart
+			new Chart(document.getElementById("chartjs-pie"), {
+				type: "pie",
+				data: {
+					labels: ["Female", "Male"],
+					datasets: [{
+						data: [260, 125],
+						backgroundColor: [
+							window.theme.primary,
+							window.theme.warning,
+							window.theme.danger,
+							"#dee2e6"
+						],
+						borderColor: "transparent"
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: true
+					}
+				}
+			});
+		});
+	</script>
 
+        <script>
+		document.addEventListener("DOMContentLoaded", function() {
+			// Bar chart
+			new Chart(document.getElementById("chartjs-bar"), {
+				type: "bar",
+				data: {
+					labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+					datasets: [{
+						label: "Male",
+						backgroundColor: window.theme.primary,
+						borderColor: window.theme.primary,
+						hoverBackgroundColor: window.theme.primary,
+						hoverBorderColor: window.theme.primary,
+						data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
+						barPercentage: .75,
+						categoryPercentage: .5
+					}, {
+						label: "Female",
+						backgroundColor: "#dee2e6",
+						borderColor: "#dee2e6",
+						hoverBackgroundColor: "#dee2e6",
+						hoverBorderColor: "#dee2e6",
+						data: [69, 66, 24, 48, 52, 51, 44, 53, 62, 79, 51, 68],
+						barPercentage: .75,
+						categoryPercentage: .5
+					}]
+				},
+				options: {
+					maintainAspectRatio: false,
+					legend: {
+						display: false
+					},
+					scales: {
+						yAxes: [{
+							gridLines: {
+								display: false
+							},
+							stacked: false,
+							ticks: {
+								stepSize: 20
+							}
+						}],
+						xAxes: [{
+							stacked: false,
+							gridLines: {
+								color: "transparent"
+							}
+						}]
+					}
+				}
+			});
+		});
+	</script>
 </body>
 
 </html>

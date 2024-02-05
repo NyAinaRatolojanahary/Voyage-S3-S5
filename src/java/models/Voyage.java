@@ -6,8 +6,10 @@
 package models;
 
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import utils.connectBase;
 
 /**
@@ -21,6 +23,39 @@ public class Voyage {
     int idLocalisation;
     int idBouquet;
     int idTypeDuree;
+    int nombreBillet;
+    String nomBouquet;
+    int duree;
+
+    public int getDuree() {
+        return duree;
+    }
+
+    public void setDuree(int duree) {
+        this.duree = duree;
+    }
+    
+    
+
+    public String getNomBouquet() {
+        return nomBouquet;
+    }
+
+    public void setNomBouquet(String nomBouquet) {
+        this.nomBouquet = nomBouquet;
+    }
+    
+    
+
+    public int getNombreBillet() {
+        return nombreBillet;
+    }
+
+    public void setNombreBillet(int nombreBillet) {
+        this.nombreBillet = nombreBillet;
+    }
+    
+    
 
     public int getIdVoyage() {
         return idVoyage;
@@ -63,6 +98,8 @@ public class Voyage {
         this.idTypeDuree = idTypeDuree;
     }
 
+    
+
     public Voyage() {
     }
 
@@ -96,5 +133,39 @@ public class Voyage {
         se_connecter.close();
         state.close();
     }
+    
+    public ArrayList<Voyage> getAllVoyage() throws SQLException, Exception{
+        ArrayList<Voyage> valiny = new ArrayList<Voyage>();
+        String requete = "Select idVoyage,nomVoyage from voyage";
+        Connection con = connectBase.connect();
+        Statement state = con.createStatement();
+        ResultSet rs = state.executeQuery(requete);
+        while (rs.next()) {
+            Voyage result = new Voyage();
+            result.setIdVoyage(rs.getInt("idVoyage"));
+            result.setNom(rs.getString("nomVoyage"));
+            valiny.add(result);
+        }
+        return valiny;
+    }
+    
+    public ArrayList<Voyage> getAllVoyageDispo() throws SQLException, Exception{
+        ArrayList<Voyage> valiny = new ArrayList<Voyage>();
+        String requete = "select * from v_billetDispo;";
+        Connection con = connectBase.connect();
+        Statement state = con.createStatement();
+        ResultSet rs = state.executeQuery(requete);
+        while (rs.next()) {
+            Voyage result = new Voyage();
+            result.setIdVoyage(rs.getInt("idVoyage"));
+            result.setNom(rs.getString("nomVoyage"));
+            result.setNombreBillet(rs.getInt("reste"));
+            result.setNomBouquet(rs.getString("nomBouquet"));
+            result.setDuree(rs.getInt("duree"));
+            valiny.add(result);
+        }
+        return valiny;
+    }
+    
     
 }

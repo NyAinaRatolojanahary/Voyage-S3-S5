@@ -5,14 +5,18 @@
  */
 package controlers;
 
+import jakarta.servlet.RequestDispatcher;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import models.AchatBillet;
+import models.ActiviteBouquet;
 import models.Voyage;
 
 /**
@@ -78,10 +82,31 @@ public class AjoutNouveauVoyageServlet extends HttpServlet {
             int localisation = Integer.parseInt(request.getParameter("localisation"));
             int bouquet = Integer.parseInt(request.getParameter("bouquet"));
             int duree = Integer.parseInt(request.getParameter("duree"));
+            int nombre = Integer.parseInt(request.getParameter("nombre"));
             
-            Voyage v = new Voyage();
-            v.insertVoyage(nom,localisation, bouquet, duree);
-            response.sendRedirect("NouveauVoyage.jsp");
+            try {
+                
+                ActiviteBouquet ab = new ActiviteBouquet();
+                int idB = ab.getActiviteByIdBouquet(bouquet).get(0).getIdBouquet();
+                ArrayList<ActiviteBouquet> lsab = ab.getActiviteByIdBouquet(idB);
+                
+                AchatBillet acb = new AchatBillet();
+                boolean b;
+                b = acb.isBilletEnougth(lsab, nombre);
+                if(b = true){
+                    for (int i = 0; i < lsab.size(); i++) {
+                        acb.insertEntreeBillet(lsab.get(i).getIdActivite(), (-1)*nombre*lsab.get(i).getNombre());
+                    }
+                    Voyage v = new Voyage();
+                    v.insertVoyage(nom,localisation, bouquet, duree);
+                    response.sendRedirect("NouveauVoyage.jsp");
+                }
+                
+            } catch (Exception e) {
+                request.setAttribute("exception", e);
+                RequestDispatcher rqs = request.getRequestDispatcher("NouveauVoyage.jsp");
+                rqs.forward(request, response);
+            }
         } catch (Exception e) {
             Logger.getLogger(AjoutNouveauVoyageServlet.class.getName()).log(Level.SEVERE, null, e);
         }

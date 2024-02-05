@@ -80,7 +80,10 @@ public class FiltreVoyageParPrixServlet extends HttpServlet {
             
             FiltreVoyageParPrix flt = new FiltreVoyageParPrix();
             ArrayList<FiltreVoyageParPrix> ls = flt.listeFiltre(min, max);
+            System.out.println(ls.size());
             request.setAttribute("lsFiltre", ls);
+            request.setAttribute("min", min);
+            request.setAttribute("max", max);
             RequestDispatcher disp = request.getRequestDispatcher("ListeVoyageFiltre.jsp");
             disp.forward(request, response);
             

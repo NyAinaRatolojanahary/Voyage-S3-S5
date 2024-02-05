@@ -83,9 +83,27 @@ public class FiltreVoyageParPrix {
         String requete = "select * from v_prixVoyageFiltre WHERE prix BETWEEN "+min+" AND "+max+";";
         ResultSet resultat = state.executeQuery(requete);
         while (resultat.next()) {            
-            String voyage = resultat.getString(1);
-            String bouquet = resultat.getString(2);
-            double prix = resultat.getDouble(3);
+            String voyage = resultat.getString("nomVoyage");
+            String bouquet = resultat.getString("nomBouquet");
+            double prix = resultat.getDouble("prix");
+            FiltreVoyageParPrix vaovao = new FiltreVoyageParPrix(min,max,voyage,bouquet,prix);
+            valiny.add(vaovao);
+        }
+        se_connecter.close();
+        state.close();
+        return valiny;
+    }
+    
+    public ArrayList<FiltreVoyageParPrix> getBenefice(double min,double max) throws Exception{
+        ArrayList<FiltreVoyageParPrix> valiny = new ArrayList<FiltreVoyageParPrix>();
+        Connection se_connecter = connectBase.connect();
+        Statement state = se_connecter.createStatement();
+        String requete = "select * from v_filtreVoyageBenefice WHERE difference BETWEEN "+min+" AND "+max+";";
+        ResultSet resultat = state.executeQuery(requete);
+        while (resultat.next()) {            
+            String voyage = resultat.getString(2);
+            String bouquet = resultat.getString(3);
+            double prix = resultat.getDouble(4);
             FiltreVoyageParPrix vaovao = new FiltreVoyageParPrix(min,max,voyage,bouquet,prix);
             valiny.add(vaovao);
         }
